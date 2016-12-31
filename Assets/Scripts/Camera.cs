@@ -19,7 +19,7 @@ public class Camera : MonoBehaviour
     void Update()
     {
         transform.LookAt(new Vector3(0.0f, 0.0f, 0.0f));
-        viewAngle = 100 * Time.deltaTime;
+        viewAngle = 50 * Time.deltaTime;
         transform.RotateAround(
             target.transform.position,
             Vector3.up,

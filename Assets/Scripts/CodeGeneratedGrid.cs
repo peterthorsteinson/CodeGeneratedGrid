@@ -6,7 +6,7 @@ using UnityEngine;
 public class CodeGeneratedGrid : MonoBehaviour
 {
     private Vector3[] vertices;
-    public int xSize = 10, ySize = 10;
+    public int xSize = 20, ySize = 20;
     private Mesh mesh;
 
     private void Awake()
@@ -24,7 +24,12 @@ public class CodeGeneratedGrid : MonoBehaviour
         {
             for (int x = 0; x <= xSize; x++, i++)
             {
-                vertices[i] = new Vector3(x - 5, y - 5, Mathf.Sqrt((x - 5) * (x - 5) + (y - 5) * (y - 5)));
+                float xCenterOffset = xSize / 2.0f;
+                float yCenterOffset = ySize / 2.0f;
+                vertices[i] = new Vector3(
+                    x - xCenterOffset,
+                    y - yCenterOffset,
+                    Mathf.Sqrt((x - xCenterOffset) * (x - xCenterOffset) + (y - yCenterOffset) * (y - yCenterOffset)));
             }
         }
         mesh.vertices = vertices;
@@ -52,7 +57,12 @@ public class CodeGeneratedGrid : MonoBehaviour
         {
             for (int x = 0; x <= xSize; x++, i++)
             {
-                vertices[i] = new Vector3(x - 5, y - 5, Mathf.Sqrt((x - 5) * (x - 5) + (y - 5) * (y - 5)));
+                float xCenterOffset = xSize / 2.0f;
+                float yCenterOffset = ySize / 2.0f;
+                vertices[i] = new Vector3(
+                    x - xCenterOffset,
+                    y - yCenterOffset,
+                    Mathf.Sqrt((x - xCenterOffset) * (x - xCenterOffset) + (y - yCenterOffset) * (y - yCenterOffset)));
                 yield return wait;
             }
         }
